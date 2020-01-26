@@ -24,7 +24,7 @@ const PersonaHover_base = ({profession, tooltip, ...props}) => {
                     </button>
                 </div>
                 <div>
-                    <Tooltip visible={visible}> {tooltip} </Tooltip>
+                    <Tooltip visible={visible} onClick={() => mostrarTooltip(!visible)} > {tooltip} </Tooltip>
                 </div>
         </div>
     )
