@@ -13,10 +13,10 @@ const Home_base = function ({...props}) { // se le pasan las props para recibir 
 
                     <div className='bloque-izquierdo'>
                         <div className='bloque-izquierdo-container'>
-                            <h1> My English Course at UTP </h1>
+                            <h1> Professions in my family </h1>
                             <p>
-                            Read the next email and answer the comprehension questions and choose A, B, C or D.
-                            <span className='negrilla'> <br/> ¡Time to practice your listening skill!</span></p>
+                            Listen to each short description about different family members’ professions. Click on each picture and listen to the audio. Later, click on the button to record your voice and compare it with the original audio. 
+                            <span className='negrilla'> <br/> <br/> ¡Time to practice your speaking skill!</span></p>
                             <ButtonX>Start</ButtonX>
                         </div>
                     </div>

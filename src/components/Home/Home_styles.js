@@ -36,7 +36,7 @@ const estilos_home = css`
     .bloque-derecho>figure{
         position:absolute;
         top: 2em;
-        left: 0em;
+        left: 7em;
         img{
             display:block;
             width:22.5em;
