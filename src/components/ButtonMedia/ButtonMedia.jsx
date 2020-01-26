@@ -6,7 +6,7 @@ import styles from './ButtonMedia_styles'
 
 // Componente base
 const ButtonMedia_base = ({play, pause, repeat, ...props}) => {
-    console.log(props)
+
     const btn= () => {
         switch(true){
             case play:
