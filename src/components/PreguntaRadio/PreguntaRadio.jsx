@@ -6,7 +6,7 @@ import styles from './PreguntaRadio_styles'
 
 // Componente base
 const PreguntaRadio_base = ({pregunta, opciones, correcta,...props}) => {
-
+    console.log('la correcta es la ', correcta)
     return (
         <div {...props}>
             <div> { pregunta } </div>
