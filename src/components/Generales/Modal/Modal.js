@@ -69,8 +69,6 @@ const ModalBase = ( { w, ok, err, visible, ...props } ) => {
 
 
                     <div className='ilx-modal-footer'>
-                        <ButtonModal inactivo>Repeat</ButtonModal>
-                        { !err &&  <ButtonModal>Next</ButtonModal>  }
                         
                     </div>
 

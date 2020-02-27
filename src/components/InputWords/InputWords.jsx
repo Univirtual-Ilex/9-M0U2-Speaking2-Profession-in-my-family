@@ -3,13 +3,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import styles from './InputWords_styles'
-import { Input } from './InputWords_styles'
+import { Div } from './InputWords_styles'
 
 // Componente base
-const InputWords_base = ({w,m,...props}) => {
+const InputWords_base = ({name, w, m, ...props}) => {
     return (
         <div {...props}>
-           <Input className='btn-clean' />
+           <Div className='btn-clean' >
+           		<span> { name } </span>
+           </Div>
         </div>
     )
 }

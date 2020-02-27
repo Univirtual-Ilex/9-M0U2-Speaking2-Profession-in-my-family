@@ -17,7 +17,16 @@ const mistyles = css`
     color: ${Ilex.textos};
 }
 
-
+.dnd{
+	width: 100%;
+    padding-right: 3em;
+    padding-left: 3em;
+    margin-right: auto;
+    margin-left: auto;
+}
+.text-center{
+	text-align: center;
+}
 .to,.subject,.content{
     width: 80%;
     margin:0 auto;
@@ -34,6 +43,31 @@ const mistyles = css`
         color: ${Ilex.violeta2};
         font-weight:medium;
     }
+}
+.color_gray{
+	color: ${Ilex.textos};
+}
+.mt-0{
+	margin-top: 0 !important;
+}
+ul {
+
+	    list-style-type: none;
+  		margin: 0;
+  		padding: 0;
+
+  		li.inline_list{
+  			display: inline-block;
+  		}
+  		.inline_list:not(:last-child) {
+		  margin-right: 0.5rem;
+		}
+    }
+li {
+	margin-bottom: 1em;
+}
+.float_left{
+	float: right;
 }
 
 `

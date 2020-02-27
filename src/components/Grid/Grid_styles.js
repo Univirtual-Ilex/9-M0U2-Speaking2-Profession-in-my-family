@@ -58,6 +58,7 @@ export const stylesRow = css`
             }
         }
     };
+    margin-top: 0.7em;
     padding:${ (props) => (padding(props)) };
 
     &>div{

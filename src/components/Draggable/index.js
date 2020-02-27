@@ -1,1 +1,1 @@
-export { default, DraggableBlock, DraggableItemb, DraggableClean } from './Draggable'
+export { default } from './Draggable'

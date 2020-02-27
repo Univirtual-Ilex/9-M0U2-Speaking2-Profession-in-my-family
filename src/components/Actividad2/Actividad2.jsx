@@ -15,7 +15,7 @@ import ButtonUi from '../ButtonControlUI'
 import ButtonCheck from '../ButtonCheck'
 import PreguntaRadio from '../PreguntaRadio/PreguntaRadio'
 // Componente base
-const Actividad2_base = ({...props}) => {
+const Actividad2_base = ({staticContext, ...props}) => {
     return (
         <Container bgImage='./src/bg_actividad1.png' h={33} {...props}>
 

@@ -1,10 +1,12 @@
 import React from 'react';
 import Fondo from './components/Fondo'
+import {BrowserRouter, Route } from 'react-router-dom'
 
 // eslint-disable-next-line
 import Modal from './components/Generales/Modal'
 import Gstyle from './App/gstyle' // Estilos globales
 import Ilex from './App/variables' //Variables
+
 
 // Actividades
 // Actividad 1
@@ -50,8 +52,14 @@ const App = () => {
   return(
     <>
       <Gstyle/>
-      <Fondo degradado={Ilex.degradado('-30deg',Ilex.color_violeta_speaking,Ilex.color_rosa_speaking,Ilex.color_rosa_speaking)}>
-        <Actividad1 />
+      <Fondo degradado={Ilex.degradado('90deg',Ilex.color_amarilloClaro,Ilex.color_amarilloClaro,Ilex.color_amarilloOscuro)}>
+        <BrowserRouter>
+	        <Route path='/' exact  component={Home} />
+	        <Route path='/actividad1'  component={Actividad1} />
+	        <Route path='/actividad2'  component={Actividad2} />
+	        <Route path='/actividad2a'  component={Actividad2A} />
+	        <Route path='/actividad3'  component={Actividad3} />
+      	</BrowserRouter>
       </Fondo>
       <Modal w='30'>
       </Modal>
