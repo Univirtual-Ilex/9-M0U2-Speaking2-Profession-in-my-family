@@ -1,1 +1,0 @@
-export { default, ButtonTF2 } from './ButtonTF'

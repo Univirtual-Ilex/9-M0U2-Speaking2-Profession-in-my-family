@@ -1,1 +1,0 @@
-node component_composer
