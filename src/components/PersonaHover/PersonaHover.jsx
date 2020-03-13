@@ -1,5 +1,5 @@
 //Import
-import React, { useRef } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import styles from './PersonaHover_styles'
 // components
@@ -9,16 +9,28 @@ import { useState, useEffect } from 'react'
 
 
 // Componente base
-const PersonaHover_base = ({profession, tooltip, ...props}) => {
+const PersonaHover_base = ({profession, tooltip, audiourl, ...props}) => {
 
     const [visible, mostrarTooltip] = useState(false)
     // States Audio recorder 
     const [isRecording, setRecording] = useState(false)
-    const [chunks, setChunks] = useState([])
+    const [chunks, setChunks] = useState(false)
     let [mediaRecorder, setMediaRecorder] = useState(false)
-    const ilxAudio = useRef()
-    const handleClick = () => {
+    const [isRunning, setRunning] = useState(false)
+    const [runningAudio, setRunningAudio] = useState(false)
+
+
+    const handleClick = (val) => {
         mostrarTooltip(!visible)
+        console.log(val)
+
+        const audio = new Audio(audiourl)
+        if (val) {
+            audio.play()
+        } else {
+            audio.load()
+            audio.pause()
+        }
     }
 
 
@@ -41,12 +53,20 @@ const PersonaHover_base = ({profession, tooltip, ...props}) => {
     }
 
     const playAudio = () => {
- 
-        const audioBlob = new Blob(chunks);
-        const audioUrl = URL.createObjectURL(audioBlob);
-        const audio = new Audio(audioUrl);
-        audio.play();
-        console.log('Playing')
+        if (chunks) {
+            setRunning(true)
+            const audioBlob = new Blob(chunks)
+            const audioUrl = URL.createObjectURL(audioBlob)
+            const audio = new Audio(audioUrl)
+            audio.play()
+            audio.onended = () => {
+                setRunning(false)
+            }
+            console.log('Playing', audio)
+        } else {
+            alert('¡You must record your voice First!')
+        }
+
 
     }
 
@@ -61,24 +81,20 @@ const PersonaHover_base = ({profession, tooltip, ...props}) => {
 
     return (
         <div {...props}>
-                <div className={'person ' + profession } onClick={() => handleClick()}>
+                <div className={'person ' + profession } onClick={() => handleClick(true)}>
                 </div>
                 <div className='recorder'>
                     <button className='btn-clean' onClick={ () => handleAudio(isRecording ? 'stop' : 'start') }>
-                        <img src='./src/rec_btn_2.svg' alt='record your voice' />
+                        <img src={isRecording ? './src/pause.svg' : './src/rec_btn_2.svg'} alt='record your voice' />
                     </button>
 
-
-
-
                     <button className='btn-clean' onClick={ playAudio }>
-                        <img src='./src/play_btn_2.svg' alt='listen to your voice' />
+                        <img src={isRunning ? './src/pause.svg' : './src/play_btn_2.svg'} alt='listen to your voice' />
                     </button>
                 </div>
                 <div>
-                    <Tooltip visible={visible} onClick={() => mostrarTooltip(!visible)} > {tooltip} </Tooltip>
+                    <Tooltip visible={visible} onClick={ ()=>handleClick(false) } > {tooltip} </Tooltip>
                 </div>
-                {mediaRecorder.state + ''}
         </div>
     )
 }

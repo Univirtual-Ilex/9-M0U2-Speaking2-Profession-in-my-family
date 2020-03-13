@@ -39,7 +39,7 @@ const Actividad_base =  ({...props}) => {
             <IRow justify='center' align='center' w={100} gutters={0.5}>
                 { data.map((item, index) => {
                     return(
-                        <PersonaHover key={item.id} profession={item.profession} tooltip={item.tooltip}></PersonaHover>
+                        <PersonaHover audiourl="./media/audio.mp3" key={item.id} profession={item.profession} tooltip={item.tooltip}></PersonaHover>
                     )
                 }) }
 
