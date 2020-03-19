@@ -15,13 +15,13 @@ const data = [
     {
       "id": 3,
       "profession": "cook",
-      "audio": "./media/cook.mp3",
+      "audio": "./media/chef.mp3",
       "tooltip": "My aunt Maritza is a chef. She cooks food for many people in a very famous restaurant from the city. She’s very young. She’s 27 years old."
     },
     {
       "id": 4,
       "profession": "fireman",
-      "audio": "./media/Fireman.mp3",
+      "audio": "./media/fireman.mp3",
       "tooltip": "Enrique is Maritza’s husband. He is 35 and he is a fireman. He works combating and extinguish fires."
     },
 

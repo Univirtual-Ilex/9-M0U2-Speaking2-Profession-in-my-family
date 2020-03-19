@@ -5,6 +5,7 @@ import styles from './PersonaHover_styles'
 // components
 import Tooltip from '../Tooltip'
 import { useState, useEffect } from 'react'
+import {ICol} from '../Grid'
 
 
 
@@ -17,19 +18,19 @@ const PersonaHover_base = ({profession, tooltip, audiourl, ...props}) => {
     const [chunks, setChunks] = useState(false)
     let [mediaRecorder, setMediaRecorder] = useState(false)
     const [isRunning, setRunning] = useState(false)
-    const [runningAudio, setRunningAudio] = useState(false)
+    const [runningAudio, setRunningAudio] = useState(true)
+    const [audioState, setAudioState] = useState(false)
 
 
-    const handleClick = (val) => {
+
+    const handleClick = () => {
         mostrarTooltip(!visible)
-        console.log(val)
-
-        const audio = new Audio(audiourl)
-        if (val) {
-            audio.play()
+        setRunningAudio(!runningAudio)
+        if(runningAudio) {
+            audioState.play()
         } else {
-            audio.load()
-            audio.pause()
+            audioState.load()
+            audioState.pause()
         }
     }
 
@@ -76,14 +77,17 @@ const PersonaHover_base = ({profession, tooltip, audiourl, ...props}) => {
             const media = new MediaRecorder(audiostream)
             setMediaRecorder(media)
         })
+
+        const audio = new Audio(audiourl)
+        setAudioState(audio)
     }, [])
 
 
     return (
         <div {...props}>
-                <div className={'person ' + profession } onClick={() => handleClick(true)}>
+                <div className={'person ' + profession } onClick={() => handleClick()}>
                 </div>
-                <div className='recorder'>
+                <ICol className='recorder' mt={0.7}>
                     <button className='btn-clean' onClick={ () => handleAudio(isRecording ? 'stop' : 'start') }>
                         <img src={isRecording ? './src/pause.svg' : './src/rec_btn_2.svg'} alt='record your voice' />
                     </button>
@@ -91,7 +95,7 @@ const PersonaHover_base = ({profession, tooltip, audiourl, ...props}) => {
                     <button className='btn-clean' onClick={ playAudio }>
                         <img src={isRunning ? './src/pause.svg' : './src/play_btn_2.svg'} alt='listen to your voice' />
                     </button>
-                </div>
+                </ICol>
                 <div>
                     <Tooltip visible={visible} onClick={ ()=>handleClick(false) } > {tooltip} </Tooltip>
                 </div>
