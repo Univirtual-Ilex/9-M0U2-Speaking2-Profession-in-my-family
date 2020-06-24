@@ -25,7 +25,7 @@ const Actividad_base =  ({...props}) => {
         <Container bgImage='./src/bg_actividad1.png' {...props} h={32}>
             
             <UiButtonsContainer top={2}>
-                <ButtonUi icon='ilx-ayuda' tooltip='click on the images to hear the description of each profession' />
+                <ButtonUi icon='ilx-ayuda' tooltip='Click on the images to hear the description of each profession' />
                { /*<ButtonUi icon='ilx-volver' tooltip='Start Again' /> */}
             </UiButtonsContainer>
             <IRow pt={1.5}>
